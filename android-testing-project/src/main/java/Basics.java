@@ -9,7 +9,6 @@ public class Basics extends Base {
     public static void main(String[] args) throws MalformedURLException {
 
         AndroidDriver<AndroidElement> driver = capabilities();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // Click Element
         driver.findElement(By.xpath("//android.widget.TextView[@text='Preference']")).click();
