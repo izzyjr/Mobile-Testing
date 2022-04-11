@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class Base {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static AndroidDriver capabilities() throws MalformedURLException {
 
         File app = new File("src", "ApiDemos-debug.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -20,6 +20,7 @@ public class Base {
 
         AndroidDriver driver = new AndroidDriver(url, cap);
 
+        return driver;
     }
 
 }
