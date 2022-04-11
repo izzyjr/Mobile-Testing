@@ -21,7 +21,7 @@ public class Base {
         cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "uiautomator2");
 
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(url, cap);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver;
     }
 

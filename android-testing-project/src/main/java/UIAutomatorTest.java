@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 public class UIAutomatorTest extends Base {
 
