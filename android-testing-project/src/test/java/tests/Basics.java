@@ -12,7 +12,6 @@ import java.net.MalformedURLException;
 
 public class Basics extends Base {
 
-    private TouchAction t;
     private AndroidDriver<AndroidElement> driver;
     private ApiDemosDebugPage apiDemosDebugPage;
 
@@ -20,7 +19,6 @@ public class Basics extends Base {
     public void setUp() throws MalformedURLException {
         driver = capabilities();
         apiDemosDebugPage = new ApiDemosDebugPage(driver);
-        t = new TouchAction(driver);
     }
 
     @Test
