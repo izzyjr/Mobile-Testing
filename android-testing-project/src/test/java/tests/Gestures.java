@@ -1,9 +1,13 @@
+package tests;
+
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.ApiDemosDebugPage;
+import utils.Base;
 
 import java.net.MalformedURLException;
 
@@ -13,60 +17,47 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 import static java.time.Duration.ofSeconds;
 import static org.testng.Assert.assertTrue;
 
-public class Gestures extends Base{
+public class Gestures extends Base {
 
     private AndroidDriver<AndroidElement> driver;
+    private ApiDemosDebugPage apiDemosDebugPage;
     private TouchAction t;
 
     @BeforeClass
-    private void setUp() throws MalformedURLException {
+    public void setUp() throws MalformedURLException {
         driver = capabilities();
         t = new TouchAction(driver);
+        apiDemosDebugPage = new ApiDemosDebugPage(driver, t);
     }
 
     @Test
     private void isSampleMenuDisplayed() throws MalformedURLException {
 
-        WebElement views = driver.findElementByXPath("//android.widget.TextView[@text='Views']");
-        t.tap(tapOptions().withElement(element(views))).perform();
-
-        WebElement expandList = driver.findElementByXPath("//android.widget.TextView[@text='Expandable Lists']");
-        t.tap(tapOptions().withElement(element(expandList))).perform();
-
-        WebElement customAdapter = driver.findElementByXPath("//android.widget.TextView[@text='1. Custom Adapter']");
-        t.tap(tapOptions().withElement(element(customAdapter))).perform();
+        // Touch Action - Tap
+        apiDemosDebugPage.tapOnViews();
+        apiDemosDebugPage.tapOnExpandList();
+        apiDemosDebugPage.tapOnCustomAdapter();
 
         // Touch Action - Long Press
-        WebElement peopleNames = driver.findElementByXPath("//android.widget.TextView[@text='People Names']");
-        t.longPress(longPressOptions().withElement(element(peopleNames)).withDuration(ofSeconds(2))).release().perform();
+        apiDemosDebugPage.longPressPeopleNames();
 
         //Assert True
-        assertTrue(driver.findElementByXPath("//android.widget.TextView[@text='Sample menu']").isDisplayed());
+        assertTrue(apiDemosDebugPage.isSampleMenuDisplayed());
     }
 
     @Test
     private void swipeDemo() throws MalformedURLException {
 
-        WebElement views = driver.findElementByXPath("//android.widget.TextView[@text='Views']");
-        t.tap(tapOptions().withElement(element(views))).perform();
-
-        WebElement dateWidgets = driver.findElementByXPath("//android.widget.TextView[@text='Date Widgets']");
-        t.tap(tapOptions().withElement(element(dateWidgets))).perform();
-
-        WebElement inline = driver.findElementByXPath("//android.widget.TextView[@text='2. Inline']");
-        t.tap(tapOptions().withElement(element(inline))).perform();
-
-        WebElement number9 = driver.findElementByXPath("//*[@content-desc='9']");
-        t.tap(tapOptions().withElement(element(number9))).perform();
+        apiDemosDebugPage.tapOnViews();
+        apiDemosDebugPage.tapOnDateWidgets();
+        apiDemosDebugPage.tapOnInline();
+        apiDemosDebugPage.tapOnNumber9();
 
         // Touch Action - Swipe
         // Long press on element, move to another element and then release
-        WebElement number15 = driver.findElementByXPath("//*[@content-desc='15']");
-        WebElement number45 = driver.findElementByXPath("//*[@content-desc='45']");
-        t.longPress(longPressOptions().withElement(element(number15)).withDuration(ofSeconds(2)))
-                .moveTo(element(number45)).release().perform();
+        apiDemosDebugPage.longPressThanMove();
 
         //Assert True
-        assertTrue(number45.isSelected());
+        assertTrue(apiDemosDebugPage.isNumber45Selected());
     }
 }
