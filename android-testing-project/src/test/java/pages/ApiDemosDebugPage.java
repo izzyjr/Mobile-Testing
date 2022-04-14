@@ -71,6 +71,9 @@ public class ApiDemosDebugPage {
     @AndroidFindBy(xpath = "//*[@content-desc='45']")
     private AndroidElement number45;
 
+    @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView3\"));")
+    private AndroidElement scrollToWebView3;
+
     public ApiDemosDebugPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -173,5 +176,9 @@ public class ApiDemosDebugPage {
 
     public boolean isNumber45Selected() {
         return number45.isSelected();
+    }
+
+    public boolean isWebView3Displayed() {
+        return scrollToWebView3.isDisplayed();
     }
 }

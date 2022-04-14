@@ -55,4 +55,13 @@ public class Gestures extends Base {
         //Assert True
         assertTrue(apiDemosDebugPage.isNumber45Selected());
     }
+
+    @Test
+    private void scrollDemo() throws MalformedURLException {
+
+        apiDemosDebugPage.tapOnViews();
+
+        // Scroll down to WebView3 and Assert True
+        assertTrue(apiDemosDebugPage.isWebView3Displayed());
+    }
 }
