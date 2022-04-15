@@ -1,5 +1,6 @@
 package utils;
 
+import com.sun.tools.corba.se.idl.constExpr.And;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -12,18 +13,23 @@ import java.util.concurrent.TimeUnit;
 
 public class Base {
 
+    private static AndroidDriver<AndroidElement> driver;
+    private static DesiredCapabilities cap;
+
     public static AndroidDriver<AndroidElement> capabilities() throws MalformedURLException {
 
         File app = new File("src", "ApiDemos-debug.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
-        DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 2 XL API 30");
-        cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-        cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "uiautomator2");
+        if (driver == null) {
+            DesiredCapabilities cap = new DesiredCapabilities();
+            cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 2 XL API 30");
+            cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+            cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "uiautomator2");
 
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(url, cap);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            AndroidDriver<AndroidElement> driver = new AndroidDriver<>(url, cap);
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        }
         return driver;
     }
 
