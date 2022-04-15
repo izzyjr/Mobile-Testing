@@ -32,6 +32,9 @@ public class GeneralStorePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Products']")
     private AndroidElement productsHeader;
 
+    @AndroidFindBy(xpath = "//android.widget.Toast[1]")
+    private AndroidElement toasterErrorMessage;
+
     public GeneralStorePage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -69,5 +72,9 @@ public class GeneralStorePage {
 
     public boolean isProductsHeaderDisplayed() {
         return productsHeader.isDisplayed();
+    }
+
+    public String toasterError() {
+        return toasterErrorMessage.getAttribute("name");
     }
 }

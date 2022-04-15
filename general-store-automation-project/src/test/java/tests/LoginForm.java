@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.GeneralStorePage;
 import utils.Base;
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
 
 public class LoginForm extends Base {
@@ -21,6 +22,15 @@ public class LoginForm extends Base {
     }
 
     @Test
+    private void completeLoginFormToasterError() {
+        generalStorePage.selectFemale();
+        generalStorePage.clickOnCountryDropdown();
+        generalStorePage.clickOnArgentina();
+        generalStorePage.clickOnLetsShopButton();
+        assertEquals(generalStorePage.toasterError() ,"Please enter your name");
+    }
+
+    @Test(priority = 1)
     private void completeLoginForm() {
         generalStorePage.inputName("Jane Jane");
         generalStorePage.hideKeyboard();
