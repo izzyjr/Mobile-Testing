@@ -64,4 +64,14 @@ public class Gestures extends Base {
         // Scroll down to WebView3 and Assert True
         assertTrue(apiDemosDebugPage.isWebView3Displayed());
     }
+
+    @Test
+    private void dragAndDropDemo() throws MalformedURLException {
+
+        apiDemosDebugPage.tapOnViews();
+        apiDemosDebugPage.tapOnDragAndDrop();
+
+        // Drag and drop
+        apiDemosDebugPage.longPressAndDrag();
+    }
 }

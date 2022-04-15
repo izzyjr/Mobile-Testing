@@ -74,6 +74,12 @@ public class ApiDemosDebugPage {
     @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView3\"));")
     private AndroidElement scrollToWebView3;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Drag and Drop']")
+    private AndroidElement dragAndDrop;
+
+    @AndroidFindBy(className = "android.widget.TextView")
+    private List<AndroidElement> circles;
+
     public ApiDemosDebugPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -180,5 +186,18 @@ public class ApiDemosDebugPage {
 
     public boolean isWebView3Displayed() {
         return scrollToWebView3.isDisplayed();
+    }
+
+    public void tapOnDragAndDrop() {
+        touchAction.tap(tapOptions()
+                .withElement(element(dragAndDrop)))
+                .perform();
+    }
+
+    public void longPressAndDrag() {
+        touchAction.longPress(element(circles.get(1)))
+                .moveTo(element(circles.get(2)))
+                .release()
+                .perform();
     }
 }
