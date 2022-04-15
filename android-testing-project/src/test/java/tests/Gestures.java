@@ -20,7 +20,7 @@ public class Gestures extends Base {
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
-        driver = capabilities();
+        driver = capabilities("real");
         t = new TouchAction(driver);
         apiDemosDebugPage = new ApiDemosDebugPage(driver, t);
     }

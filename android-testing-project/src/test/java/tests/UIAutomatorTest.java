@@ -18,7 +18,7 @@ public class UIAutomatorTest extends Base {
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
-        driver = capabilities();
+        driver = capabilities("emulator");
         apiDemosDebugPage = new ApiDemosDebugPage(driver);
     }
 

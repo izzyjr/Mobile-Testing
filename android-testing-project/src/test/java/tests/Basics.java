@@ -16,7 +16,7 @@ public class Basics extends Base {
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
-        driver = capabilities();
+        driver = capabilities("real");
         apiDemosDebugPage = new ApiDemosDebugPage(driver);
     }
 
