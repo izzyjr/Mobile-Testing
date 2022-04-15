@@ -4,7 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.GeneralStorePage;
+import pages.LoginPage;
 import utils.Base;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
@@ -13,12 +13,12 @@ import java.net.MalformedURLException;
 public class LoginForm extends Base {
 
     private AndroidDriver<AndroidElement> driver;
-    private GeneralStorePage generalStorePage;
+    private LoginPage generalStorePage;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
         driver = capabilities("emulator");
-        generalStorePage = new GeneralStorePage(driver);
+        generalStorePage = new LoginPage(driver);
     }
 
     @Test

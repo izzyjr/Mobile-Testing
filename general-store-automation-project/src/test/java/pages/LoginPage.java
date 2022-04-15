@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.net.MalformedURLException;
 
-public class GeneralStorePage {
+public class LoginPage {
 
     AndroidDriver<AndroidElement> driver;
     TouchAction touchAction;
@@ -35,12 +35,12 @@ public class GeneralStorePage {
     @AndroidFindBy(xpath = "//android.widget.Toast[1]")
     private AndroidElement toasterErrorMessage;
 
-    public GeneralStorePage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
+    public LoginPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    public GeneralStorePage(AndroidDriver<AndroidElement> driver, TouchAction touchAction) throws MalformedURLException {
+    public LoginPage(AndroidDriver<AndroidElement> driver, TouchAction touchAction) throws MalformedURLException {
         this.driver = driver;
         this.touchAction = touchAction;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
