@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.GeneralStorePage;
 import utils.Base;
-
+import static org.testng.Assert.assertTrue;
 import java.net.MalformedURLException;
 
 public class LoginForm extends Base {
@@ -28,6 +28,7 @@ public class LoginForm extends Base {
         generalStorePage.clickOnCountryDropdown();
         generalStorePage.clickOnArgentina();
         generalStorePage.clickOnLetsShopButton();
+        assertTrue(generalStorePage.isProductsHeaderDisplayed());
     }
 
 }

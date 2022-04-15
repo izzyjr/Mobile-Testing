@@ -29,6 +29,9 @@ public class GeneralStorePage {
     @AndroidFindBy(id = "com.androidsample.generalstore:id/btnLetsShop")
     private AndroidElement letsShopButton;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Products']")
+    private AndroidElement productsHeader;
+
     public GeneralStorePage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -62,5 +65,9 @@ public class GeneralStorePage {
 
     public void clickOnLetsShopButton() {
         letsShopButton.click();
+    }
+
+    public boolean isProductsHeaderDisplayed() {
+        return productsHeader.isDisplayed();
     }
 }
