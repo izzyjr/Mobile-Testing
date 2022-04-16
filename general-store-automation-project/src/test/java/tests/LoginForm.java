@@ -18,7 +18,7 @@ public class LoginForm {
     private LoginPage loginPage;
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    private void setUp() throws MalformedURLException {
         driver = capabilities("emulator");
         loginPage = new LoginPage(driver);
     }

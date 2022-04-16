@@ -30,6 +30,9 @@ public class ProductPage {
     @AndroidFindBy(id = "com.androidsample.generalstore:id/counterText")
     private AndroidElement cartCounter;
 
+    @AndroidFindBy(id = "com.androidsample.generalstore:id/appbar_btn_cart")
+    private AndroidElement cartButton;
+
     public ProductPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -59,5 +62,13 @@ public class ProductPage {
                 break;
             }
         }
+    }
+
+    public void clickOnCartButton() {
+        cartButton.click();
+    }
+
+    public String getNikeJungleText() {
+        return scrollToNikeJungle.getText();
     }
 }
