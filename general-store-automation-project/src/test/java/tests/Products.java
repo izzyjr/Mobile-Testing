@@ -29,7 +29,7 @@ public class Products {
     public void findAndAddProductToCart() {
         loginPage.goToProductsPage();
         productPage.addNikeJungleToCart();
-        assertTrue(productPage.isCartCounterAt("1"));
+        assertTrue(productPage.isCartCounterAt(1));
     }
 
 }

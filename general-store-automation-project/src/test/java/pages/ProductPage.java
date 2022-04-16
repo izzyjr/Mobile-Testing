@@ -47,8 +47,8 @@ public class ProductPage {
         }
     }
 
-    public boolean isCartCounterAt(String numberOfProducts) {
-        return cartCounter.getText().equals(numberOfProducts);
+    public boolean isCartCounterAt(int numberOfProducts) {
+        return cartCounter.getText().equals(Integer.toString(numberOfProducts));
     }
 
     private void findProductAndClickAddToCartButton(List<AndroidElement> list, String productName) {
@@ -56,6 +56,7 @@ public class ProductPage {
         for (int i = 0; i < count; i++) {
             if (list.get(i).getText().equals(productName)) {
                 onscreenProductAddToCartButtons.get(i).click();
+                break;
             }
         }
     }
