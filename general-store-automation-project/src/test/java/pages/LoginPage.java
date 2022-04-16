@@ -13,6 +13,7 @@ public class LoginPage {
 
     AndroidDriver<AndroidElement> driver;
     TouchAction touchAction;
+    private final String NAME = "name";
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/nameField")
     private AndroidElement nameInputField;
@@ -76,5 +77,14 @@ public class LoginPage {
 
     public String toasterError() {
         return toasterErrorMessage.getAttribute("name");
+    }
+
+    public void goToProductsPage() {
+        nameInputField.sendKeys(NAME);
+        driver.hideKeyboard();
+        femaleRadioButton.click();
+        countryDropdown.click();
+        scrollToArgentina.click();
+        letsShopButton.click();
     }
 }
