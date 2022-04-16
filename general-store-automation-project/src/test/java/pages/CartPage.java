@@ -17,6 +17,9 @@ public class CartPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Nike SFB Jungle']")
     private AndroidElement nikeSFBJungle;
 
+    @AndroidFindBy(id = "com.androidsample.generalstore:id/totalAmountLbl")
+    private AndroidElement totalAmount;
+
     public CartPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -30,5 +33,9 @@ public class CartPage {
 
     public String getNikeSFBJungleText() {
         return nikeSFBJungle.getText();
+    }
+
+    public double getTotalAmountFromCartPage() {
+        return Double.parseDouble(totalAmount.getText().replace("$", ""));
     }
 }
