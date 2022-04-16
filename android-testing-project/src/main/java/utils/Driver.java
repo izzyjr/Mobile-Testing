@@ -10,7 +10,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class Base {
+public class Driver {
+
+    private static AndroidDriver<AndroidElement> driver;
+
+    private Driver() {
+    }
 
     public static AndroidDriver<AndroidElement> capabilities(String device) throws MalformedURLException {
 
@@ -26,7 +31,7 @@ public class Base {
         cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "uiautomator2");
 
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(url, cap);
+        driver = new AndroidDriver<>(url, cap);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver;
     }

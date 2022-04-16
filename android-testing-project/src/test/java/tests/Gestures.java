@@ -6,13 +6,13 @@ import io.appium.java_client.android.AndroidElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ApiDemosDebugPage;
-import utils.Base;
 
 import java.net.MalformedURLException;
 
 import static org.testng.Assert.assertTrue;
+import static utils.Driver.capabilities;
 
-public class Gestures extends Base {
+public class Gestures {
 
     private AndroidDriver<AndroidElement> driver;
     private ApiDemosDebugPage apiDemosDebugPage;

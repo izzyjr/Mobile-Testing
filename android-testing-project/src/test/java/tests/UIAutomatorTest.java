@@ -5,13 +5,13 @@ import io.appium.java_client.android.AndroidElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ApiDemosDebugPage;
-import utils.Base;
 
 import java.net.MalformedURLException;
 
 import static org.testng.Assert.assertEquals;
+import static utils.Driver.capabilities;
 
-public class UIAutomatorTest extends Base {
+public class UIAutomatorTest {
 
     private AndroidDriver<AndroidElement> driver;
     private ApiDemosDebugPage apiDemosDebugPage;

@@ -5,11 +5,12 @@ import io.appium.java_client.android.AndroidElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ApiDemosDebugPage;
-import utils.Base;
 
 import java.net.MalformedURLException;
 
-public class Basics extends Base {
+import static utils.Driver.capabilities;
+
+public class Basics {
 
     private AndroidDriver<AndroidElement> driver;
     private ApiDemosDebugPage apiDemosDebugPage;

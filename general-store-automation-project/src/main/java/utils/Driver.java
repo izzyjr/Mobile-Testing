@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class Driver {
 
     private static AndroidDriver<AndroidElement> driver;
-    private static DesiredCapabilities cap;
 
     private Driver() {
     }
@@ -24,7 +23,7 @@ public class Driver {
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
         if (driver == null) {
-            cap = new DesiredCapabilities();
+            DesiredCapabilities cap = new DesiredCapabilities();
             if (device.equals("real")) {
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
             } else if (device.equals("emulator")) {
