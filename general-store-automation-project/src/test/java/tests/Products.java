@@ -10,8 +10,9 @@ import pages.ProductPage;
 
 import java.net.MalformedURLException;
 
-import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import static pages.Product.NIKE_SFB_JUNGLE;
 import static utils.Driver.capabilities;
 
 public class Products {
@@ -32,17 +33,14 @@ public class Products {
     @Test
     private void findAndAddProductToCart() {
         loginPage.goToProductsPage();
-        productPage.addNikeJungleToCart();
+        productPage.addProductToCart(NIKE_SFB_JUNGLE);
         assertTrue(productPage.isCartCounterAt(1));
     }
 
-    @Test
+    @Test(priority = 1)
     private void isCorrectProductInCart() {
-        loginPage.goToProductsPage();
-        productPage.addNikeJungleToCart();
         String productNameInProductsPage = productPage.getNikeJungleText();
         productPage.clickOnCartButton();
         assertEquals(productNameInProductsPage, cartPage.getNikeSFBJungleText());
     }
-
 }
