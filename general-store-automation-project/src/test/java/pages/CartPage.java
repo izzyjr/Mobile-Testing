@@ -9,6 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.net.MalformedURLException;
 
+import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static java.time.Duration.ofSeconds;
+
 public class CartPage {
 
     AndroidDriver<AndroidElement> driver;
@@ -19,6 +23,12 @@ public class CartPage {
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/totalAmountLbl")
     private AndroidElement totalAmount;
+
+    @AndroidFindBy(id = "com.androidsample.generalstore:id/termsButton")
+    private AndroidElement termsOfConditions;
+
+    @AndroidFindBy(id = "com.androidsample.generalstore:id/alertTitle")
+    private AndroidElement termsOfConditionsTitle;
 
     public CartPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
@@ -37,5 +47,17 @@ public class CartPage {
 
     public double getTotalAmountFromCartPage() {
         return Double.parseDouble(totalAmount.getText().replace("$", ""));
+    }
+
+    public void longPressTermsOfConditions() {
+        touchAction.longPress(longPressOptions()
+                .withElement(element(termsOfConditions))
+                .withDuration(ofSeconds(2)))
+                .release()
+                .perform();
+    }
+
+    public boolean isTermsOfConditionsTitleDisplayed() {
+        return termsOfConditionsTitle.isDisplayed();
     }
 }
