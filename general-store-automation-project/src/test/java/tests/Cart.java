@@ -49,4 +49,11 @@ public class Cart {
         cartPage.longPressTermsOfConditions();
         assertTrue(cartPage.isTermsOfConditionsTitleDisplayed());
     }
+
+    @Test(priority = 2)
+    private void proceedToWebViewUsingGestures() {
+        cartPage.tapOnCloseButton();
+        cartPage.tapOnEmailDiscountCheckbox();
+        cartPage.tapOnProceedToWebViewButton();
+    }
 }

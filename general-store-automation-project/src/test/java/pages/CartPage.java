@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.net.MalformedURLException;
 
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
+import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static java.time.Duration.ofSeconds;
 
@@ -29,6 +30,15 @@ public class CartPage {
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/alertTitle")
     private AndroidElement termsOfConditionsTitle;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='CLOSE']")
+    private AndroidElement closeButton;
+
+    @AndroidFindBy(xpath = "//android.widget.CheckBox[@text='Send me e-mails on discounts related to selected products in future']")
+    private AndroidElement emailDiscountCheckbox;
+
+    @AndroidFindBy(id = "com.androidsample.generalstore:id/btnProceed")
+    private AndroidElement proceedToWebViewButton;
 
     public CartPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
@@ -59,5 +69,23 @@ public class CartPage {
 
     public boolean isTermsOfConditionsTitleDisplayed() {
         return termsOfConditionsTitle.isDisplayed();
+    }
+
+    public void tapOnCloseButton() {
+        touchAction.tap(tapOptions()
+                .withElement(element(closeButton)))
+                .perform();
+    }
+
+    public void tapOnEmailDiscountCheckbox() {
+        touchAction.tap(tapOptions()
+                .withElement(element(emailDiscountCheckbox)))
+                .perform();
+    }
+
+    public void tapOnProceedToWebViewButton() {
+        touchAction.tap(tapOptions()
+                .withElement(element(proceedToWebViewButton)))
+                .perform();
     }
 }
