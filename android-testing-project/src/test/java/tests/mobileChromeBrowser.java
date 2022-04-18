@@ -8,6 +8,7 @@ import pages.MobileChromeBrowserPage;
 
 import java.net.MalformedURLException;
 
+import static org.testng.Assert.assertTrue;
 import static utils.Driver.mobileChromeCapabilities;
 
 public class mobileChromeBrowser {
@@ -22,8 +23,12 @@ public class mobileChromeBrowser {
     }
 
     @Test
-    private void someTest() {
+    private void testingAppFromMobileChromeBrowser() {
         mobileChromeBrowserPage.getWebUrl();
+        mobileChromeBrowserPage.selectAppHamburgerMenu();
+        mobileChromeBrowserPage.selectProducts();
+        mobileChromeBrowserPage.scrollToDevopsAndClick();
+        assertTrue(mobileChromeBrowserPage.isDevopsCourseTitleDisplayed());
     }
 
 }
