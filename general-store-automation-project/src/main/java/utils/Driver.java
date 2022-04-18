@@ -32,7 +32,7 @@ public class Driver {
             } else if (device.equals("emulator")) {
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 2 XL API 30");
             } else if (device.equals("hybrid")) {
-                cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
+                cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 2 XL API 30");
                 cap.setCapability("chromedriverExecutable", CD_PATH);
             }
             cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
