@@ -36,7 +36,7 @@ public class Driver {
                 cap.setCapability("chromedriverExecutable", CD_PATH);
             }
             cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-            cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "uiautomator2");
+            cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
             driver = new AndroidDriver<>(url, cap);
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
