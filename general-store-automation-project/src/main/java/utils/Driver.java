@@ -8,7 +8,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import static utils.Path.CD_PATH;
 
 public class Driver {
 
@@ -28,6 +31,9 @@ public class Driver {
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
             } else if (device.equals("emulator")) {
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 2 XL API 30");
+            } else if (device.equals("hybrid")) {
+                cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
+                cap.setCapability("chromedriverExecutable", CD_PATH);
             }
             cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
             cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "uiautomator2");
@@ -36,6 +42,16 @@ public class Driver {
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
         return driver;
+    }
+
+    public static void contextSwitch(int context) {
+        if (driver != null) {
+            Set<String> contextNames = driver.getContextHandles();
+            for (String contextName: contextNames) {
+                System.out.println(contextName);
+            }
+            driver.context((String) contextNames.toArray()[context]);
+        }
     }
 
 }
