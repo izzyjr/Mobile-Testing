@@ -47,9 +47,6 @@ public class Driver {
     public static void contextSwitch(int context) {
         if (driver != null) {
             Set<String> contextNames = driver.getContextHandles();
-            for (String contextName: contextNames) {
-                System.out.println(contextName);
-            }
             driver.context((String) contextNames.toArray()[context]);
         }
     }

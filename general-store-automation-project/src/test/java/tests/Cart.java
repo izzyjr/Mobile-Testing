@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductPage;
+import pages.WebViewPage;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -15,6 +17,7 @@ import java.net.MalformedURLException;
 
 import static pages.Product.*;
 import static utils.Driver.capabilities;
+import static utils.Driver.contextSwitch;
 
 public class Cart {
 
@@ -23,14 +26,16 @@ public class Cart {
     private ProductPage productPage;
     private CartPage cartPage;
     private TouchAction t;
+    private WebViewPage webViewPage;
 
     @BeforeClass
     private void setUp() throws MalformedURLException {
-        driver = capabilities("emulator");
+        driver = capabilities("hybrid");
         loginPage = new LoginPage(driver);
         productPage = new ProductPage(driver);
         t = new TouchAction(driver);
         cartPage = new CartPage(driver, t);
+        webViewPage = new WebViewPage(driver);
     }
 
     @Test()
@@ -51,9 +56,21 @@ public class Cart {
     }
 
     @Test(priority = 2)
-    private void proceedToWebViewUsingGestures() {
+    private void nativeAppToWebViewAndBack() throws InterruptedException {
         cartPage.tapOnCloseButton();
         cartPage.tapOnEmailDiscountCheckbox();
         cartPage.tapOnProceedToWebViewButton();
+        Thread.sleep(5000);
+
+        // switch context to WebView
+        contextSwitch(1);
+        webViewPage.search("Synthesizer");
+
+        // switch back to app
+        webViewPage.backToApp();
+        Thread.sleep(5000);
+
+        contextSwitch(0);
+        assertTrue(loginPage.isAppTitleDisplayed());
     }
 }

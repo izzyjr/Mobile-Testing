@@ -36,6 +36,9 @@ public class LoginPage {
     @AndroidFindBy(xpath = "//android.widget.Toast[1]")
     private AndroidElement toasterErrorMessage;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='General Store']")
+    private AndroidElement appTitle;
+
     public LoginPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -86,5 +89,9 @@ public class LoginPage {
         countryDropdown.click();
         scrollToArgentina.click();
         letsShopButton.click();
+    }
+
+    public boolean isAppTitleDisplayed() {
+        return appTitle.isDisplayed();
     }
 }
