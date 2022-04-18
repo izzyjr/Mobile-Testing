@@ -25,7 +25,7 @@ public class MobileChromeBrowserPage extends Base {
     @FindBy(xpath = "//a[@href='/angularAppdemo/products/3']")
     private WebElement devopsCourse;
 
-    @FindBy(xpath = "//h3[text()=\"Devops\"]")
+    @FindBy(xpath = "//h3[text()='Devops']")
     private WebElement devopsCourseTitle;
 
     public MobileChromeBrowserPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
