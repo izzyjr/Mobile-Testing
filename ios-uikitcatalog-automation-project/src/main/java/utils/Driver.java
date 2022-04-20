@@ -10,7 +10,8 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static utils.Base.APP_PATH;
+import static utils.Base.LONGTAP_PATH;
+import static utils.Base.UIKIT_CATALOG_PATH;
 
 public class Driver {
 
@@ -19,9 +20,18 @@ public class Driver {
     private Driver() {
     }
 
-    public static IOSDriver capabilities() throws MalformedURLException {
+    public static IOSDriver uiKitCatalogCapabilities() throws MalformedURLException {
 
-        File app = new File(APP_PATH);
+        return getIosDriver(UIKIT_CATALOG_PATH);
+    }
+
+    public static IOSDriver longtapAppCapabilities() throws MalformedURLException {
+
+        return getIosDriver(LONGTAP_PATH);
+    }
+
+    private static IOSDriver getIosDriver(String appPath) throws MalformedURLException {
+        File app = new File(appPath);
 
         if (driver == null) {
             DesiredCapabilities cap = new DesiredCapabilities();

@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.net.MalformedURLException;
 
-import static utils.Driver.capabilities;
+import static utils.Driver.uiKitCatalogCapabilities;
 
 public class Gestures {
 
@@ -18,7 +18,7 @@ public class Gestures {
 
     @BeforeClass
     private void setUp() throws MalformedURLException {
-        driver = capabilities();
+        driver = uiKitCatalogCapabilities();
         uiKitCatalogPage = new UIKitCatalogPage(driver);
     }
 
