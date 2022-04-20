@@ -11,8 +11,8 @@ import java.net.MalformedURLException;
 
 public class LoginPage {
 
-    AndroidDriver<AndroidElement> driver;
-    TouchAction touchAction;
+    private final AndroidDriver<AndroidElement> driver;
+    private TouchAction touchAction;
     private final String NAME = "name";
 
     @AndroidFindBy(id = "com.androidsample.generalstore:id/nameField")

@@ -16,8 +16,8 @@ import static java.time.Duration.ofSeconds;
 
 public class CartPage {
 
-    AndroidDriver<AndroidElement> driver;
-    TouchAction touchAction;
+    private final AndroidDriver<AndroidElement> driver;
+    private TouchAction touchAction;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Nike SFB Jungle']")
     private AndroidElement nikeSFBJungle;

@@ -17,8 +17,8 @@ import static java.time.Duration.ofSeconds;
 
 public class ApiDemosDebugPage {
 
-    AndroidDriver<AndroidElement> driver;
-    TouchAction touchAction;
+    private final AndroidDriver<AndroidElement> driver;
+    private TouchAction touchAction;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Preference']")
     private AndroidElement preference;

@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 
 public class WebViewPage {
 
-    AndroidDriver<AndroidElement> driver;
+    private final AndroidDriver<AndroidElement> driver;
 
     public WebViewPage(AndroidDriver<AndroidElement> driver) throws MalformedURLException {
         this.driver = driver;

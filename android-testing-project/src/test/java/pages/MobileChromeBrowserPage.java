@@ -13,8 +13,7 @@ import java.net.MalformedURLException;
 
 public class MobileChromeBrowserPage extends Base {
 
-    AndroidDriver<AndroidElement> driver;
-    JavascriptExecutor js;
+    private final AndroidDriver<AndroidElement> driver;
 
     @FindBy(xpath = "//span[@class='navbar-toggler-icon']")
     private WebElement hamburgerMenu;
@@ -46,8 +45,7 @@ public class MobileChromeBrowserPage extends Base {
     }
 
     public void scrollToDevopsAndClick() {
-        js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 1000)", devopsCourse);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000)", devopsCourse);
         devopsCourse.click();
     }
 

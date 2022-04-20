@@ -12,8 +12,8 @@ import java.util.List;
 
 public class ProductPage {
 
-    AndroidDriver<AndroidElement> driver;
-    TouchAction touchAction;
+    private final AndroidDriver<AndroidElement> driver;
+    private TouchAction touchAction;
     private double priceTotal;
 
     @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()" +
