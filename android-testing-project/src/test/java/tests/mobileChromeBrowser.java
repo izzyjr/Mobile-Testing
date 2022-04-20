@@ -17,7 +17,7 @@ public class mobileChromeBrowser {
     private MobileChromeBrowserPage mobileChromeBrowserPage;
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    private void setUp() throws MalformedURLException {
         driver = mobileChromeCapabilities();
         mobileChromeBrowserPage = new MobileChromeBrowserPage(driver);
     }

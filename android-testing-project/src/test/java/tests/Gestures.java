@@ -19,7 +19,7 @@ public class Gestures {
     private TouchAction t;
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    private void setUp() throws MalformedURLException {
         driver = capabilities("real");
         t = new TouchAction(driver);
         apiDemosDebugPage = new ApiDemosDebugPage(driver, t);

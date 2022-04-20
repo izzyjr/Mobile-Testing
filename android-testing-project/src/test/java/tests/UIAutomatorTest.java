@@ -17,7 +17,7 @@ public class UIAutomatorTest {
     private ApiDemosDebugPage apiDemosDebugPage;
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    private void setUp() throws MalformedURLException {
         driver = capabilities("emulator");
         apiDemosDebugPage = new ApiDemosDebugPage(driver);
     }

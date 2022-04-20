@@ -16,13 +16,13 @@ public class Basics {
     private ApiDemosDebugPage apiDemosDebugPage;
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    private void setUp() throws MalformedURLException {
         driver = capabilities("real");
         apiDemosDebugPage = new ApiDemosDebugPage(driver);
     }
 
     @Test
-    public void basics() {
+    private void basics() {
         // Click Element
         apiDemosDebugPage.clickOnPreference();
         apiDemosDebugPage.clickOnPreferenceDependencies();
