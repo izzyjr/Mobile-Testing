@@ -14,7 +14,7 @@ public class ProductPage {
 
     AndroidDriver<AndroidElement> driver;
     TouchAction touchAction;
-    private static double priceTotal;
+    private double priceTotal;
 
     @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()" +
             ".resourceId(\"com.androidsample.generalstore:id/rvProductList\"))" +
