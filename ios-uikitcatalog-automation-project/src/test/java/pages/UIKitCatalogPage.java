@@ -48,6 +48,18 @@ public class UIKitCatalogPage {
     @iOSXCUITFindBy(accessibility = "This is HTML content inside a WKWebView .")
     private IOSElement text;
 
+    @iOSXCUITFindBy(accessibility = "Picker View")
+    private IOSElement pickerViewTab;
+
+    @iOSXCUITFindBy(accessibility = "Red color component value")
+    private IOSElement wheelA;
+
+    @iOSXCUITFindBy(accessibility = "Green color component value")
+    private IOSElement wheelB;
+
+    @iOSXCUITFindBy(accessibility = "Blue color component value")
+    private IOSElement wheelC;
+
     public void clickOnAlertViews() {
         alertViewsTab.click();
     }
@@ -90,5 +102,27 @@ public class UIKitCatalogPage {
 
     public boolean isTextDisplayed() {
         return text.isDisplayed();
+    }
+
+    public void clickOnPickerView() {
+        pickerViewTab.click();
+    }
+
+    public void selectValuesFromWheelPicker(int a, int b, int c) {
+        wheelA.sendKeys(Integer.toString(a));
+        wheelB.sendKeys(Integer.toString(b));
+        wheelC.sendKeys(Integer.toString(c));
+    }
+
+    public int getWheelAValue() {
+        return Integer.parseInt(wheelA.getText());
+    }
+
+    public int getWheelBValue() {
+        return Integer.parseInt(wheelB.getText());
+    }
+
+    public int getWheelCValue() {
+        return Integer.parseInt(wheelC.getText());
     }
 }

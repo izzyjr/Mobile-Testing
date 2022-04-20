@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.UIKitCatalogPage;
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 import java.net.MalformedURLException;
 
@@ -25,6 +26,15 @@ public class Gestures {
     private void scrollDemo() {
         uiKitCatalogPage.scrollToAndClickWebView();
         assertTrue(uiKitCatalogPage.isTextDisplayed());
+    }
+
+    @Test
+    private void wheelPickerDemo() {
+        uiKitCatalogPage.clickOnPickerView();
+        uiKitCatalogPage.selectValuesFromWheelPicker(5, 25, 75);
+        assertEquals(5, uiKitCatalogPage.getWheelAValue());
+        assertEquals(25, uiKitCatalogPage.getWheelBValue());
+        assertEquals(75, uiKitCatalogPage.getWheelCValue());
     }
 
 }
