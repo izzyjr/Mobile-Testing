@@ -1,4 +1,4 @@
-package tests;
+package pages;
 
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
@@ -7,10 +7,11 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.net.MalformedURLException;
+import java.util.HashMap;
 
 public class UIKitCatalogPage {
 
-    IOSDriver driver;
+    private final IOSDriver driver;
 
     public UIKitCatalogPage(IOSDriver driver) throws MalformedURLException {
         this.driver = driver;
@@ -40,6 +41,12 @@ public class UIKitCatalogPage {
 
     @iOSXCUITFindBy(accessibility = "Cancel")
     private IOSElement cancelButton;
+
+    @iOSXCUITFindBy(accessibility = "Web View")
+    private IOSElement webViewTab;
+
+    @iOSXCUITFindBy(accessibility = "This is HTML content inside a WKWebView .")
+    private IOSElement text;
 
     public void clickOnAlertViews() {
         alertViewsTab.click();
@@ -71,5 +78,17 @@ public class UIKitCatalogPage {
 
     public void clickCancel() {
         cancelButton.click();
+    }
+
+    public void scrollToAndClickWebView() {
+        HashMap<String, Object> scrollObject = new HashMap<>();
+        scrollObject.put("element", webViewTab);
+        scrollObject.put("direction", "down");
+        driver.executeScript("mobile:scroll", scrollObject);
+        webViewTab.click();
+    }
+
+    public boolean isTextDisplayed() {
+        return text.isDisplayed();
     }
 }

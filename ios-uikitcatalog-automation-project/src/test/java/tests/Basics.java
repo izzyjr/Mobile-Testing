@@ -3,6 +3,8 @@ package tests;
 import io.appium.java_client.ios.IOSDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.UIKitCatalogPage;
+
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
@@ -16,7 +18,7 @@ public class Basics {
     private static final String DESCRIPTION = "A message should be a short, complete sentence.";
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    private void setUp() throws MalformedURLException {
         driver = capabilities();
         uiKitCatalogPage = new UIKitCatalogPage(driver);
     }
