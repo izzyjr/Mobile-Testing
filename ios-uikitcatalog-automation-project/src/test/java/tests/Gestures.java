@@ -37,4 +37,10 @@ public class Gestures {
         assertEquals(75, uiKitCatalogPage.getWheelCValue());
     }
 
+    @Test
+    private void slidersDemo() {
+        uiKitCatalogPage.clickOnSliders();
+        assertEquals(uiKitCatalogPage.setDefaultSliderValue("0.50%"), "50%");
+    }
+
 }

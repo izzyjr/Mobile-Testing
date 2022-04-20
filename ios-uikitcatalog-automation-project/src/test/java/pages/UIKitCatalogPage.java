@@ -60,6 +60,12 @@ public class UIKitCatalogPage {
     @iOSXCUITFindBy(accessibility = "Blue color component value")
     private IOSElement wheelC;
 
+    @iOSXCUITFindBy(accessibility = "Sliders")
+    private IOSElement slidersTab;
+
+    @iOSXCUITFindBy(className = "XCUIElementTypeSlider")
+    private IOSElement defaultSlider;
+
     public void clickOnAlertViews() {
         alertViewsTab.click();
     }
@@ -124,5 +130,14 @@ public class UIKitCatalogPage {
 
     public int getWheelCValue() {
         return Integer.parseInt(wheelC.getText());
+    }
+
+    public void clickOnSliders() {
+        slidersTab.click();
+    }
+
+    public String setDefaultSliderValue(String value) {
+        defaultSlider.setValue(value);
+        return defaultSlider.getText();
     }
 }
