@@ -2,6 +2,7 @@ package tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.CartPage;
@@ -14,6 +15,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static pages.Product.NIKE_SFB_JUNGLE;
 import static utils.Driver.capabilities;
+import static utils.Driver.closeDriver;
 
 public class Products {
 
@@ -42,5 +44,10 @@ public class Products {
         String productNameInProductsPage = productPage.getNikeJungleText();
         productPage.clickOnCartButton();
         assertEquals(productNameInProductsPage, cartPage.getNikeSFBJungleText());
+    }
+
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
     }
 }

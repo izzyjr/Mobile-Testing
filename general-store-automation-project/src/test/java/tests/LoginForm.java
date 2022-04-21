@@ -2,6 +2,7 @@ package tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -9,6 +10,7 @@ import pages.LoginPage;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 import static utils.Driver.capabilities;
+import static utils.Driver.closeDriver;
 
 import java.net.MalformedURLException;
 
@@ -41,6 +43,11 @@ public class LoginForm {
         loginPage.clickOnArgentina();
         loginPage.clickOnLetsShopButton();
         assertTrue(loginPage.isProductsHeaderDisplayed());
+    }
+
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
     }
 
 }
