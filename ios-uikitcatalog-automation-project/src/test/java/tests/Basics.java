@@ -1,6 +1,7 @@
 package tests;
 
 import io.appium.java_client.ios.IOSDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.UIKitCatalogPage;
@@ -9,6 +10,7 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
 
+import static utils.Driver.closeDriver;
 import static utils.Driver.uiKitCatalogCapabilities;
 
 public class Basics {
@@ -40,4 +42,8 @@ public class Basics {
         uiKitCatalogPage.clickCancel();
     }
 
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
+    }
 }

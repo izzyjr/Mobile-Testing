@@ -2,6 +2,7 @@ package tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.MobileChromeBrowserPage;
@@ -9,6 +10,7 @@ import pages.MobileChromeBrowserPage;
 import java.net.MalformedURLException;
 
 import static org.testng.Assert.assertTrue;
+import static utils.Driver.closeDriver;
 import static utils.Driver.mobileChromeCapabilities;
 
 public class mobileChromeBrowser {
@@ -31,4 +33,8 @@ public class mobileChromeBrowser {
         assertTrue(mobileChromeBrowserPage.isDevopsCourseTitleDisplayed());
     }
 
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
+    }
 }

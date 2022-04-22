@@ -2,6 +2,7 @@ package tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ApiDemosDebugPage;
@@ -10,6 +11,7 @@ import java.net.MalformedURLException;
 
 import static org.testng.Assert.assertEquals;
 import static utils.Driver.capabilities;
+import static utils.Driver.closeDriver;
 
 public class UIAutomatorTest {
 
@@ -32,4 +34,8 @@ public class UIAutomatorTest {
         assertEquals(0, apiDemosDebugPage.findClickableElements());
     }
 
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
+    }
 }

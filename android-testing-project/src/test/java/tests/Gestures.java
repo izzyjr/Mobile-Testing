@@ -3,6 +3,7 @@ package tests;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ApiDemosDebugPage;
@@ -11,6 +12,7 @@ import java.net.MalformedURLException;
 
 import static org.testng.Assert.assertTrue;
 import static utils.Driver.capabilities;
+import static utils.Driver.closeDriver;
 
 public class Gestures {
 
@@ -73,5 +75,10 @@ public class Gestures {
 
         // Drag and drop
         apiDemosDebugPage.longPressAndDrag();
+    }
+
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
     }
 }

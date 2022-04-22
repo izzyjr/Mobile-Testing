@@ -2,12 +2,14 @@ package tests;
 
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSTouchAction;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LongtapPage;
 import static org.testng.Assert.assertFalse;
 import java.net.MalformedURLException;
 
+import static utils.Driver.closeDriver;
 import static utils.Driver.longtapAppCapabilities;
 
 public class Longtap {
@@ -32,4 +34,8 @@ public class Longtap {
         assertFalse(longtapPage.getEmailSwitchToggleValue());
     }
 
+    @AfterClass
+    private void cleanUp() {
+        closeDriver();
+    }
 }
